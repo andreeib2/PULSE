@@ -92,7 +92,7 @@ $(document).ready(function(){
     valideForms('#consultation form');
     valideForms('#order form');
 
-    $('inpunt[name=phone]').mask("+7 (999) 999-99-99");
+    
 
     $('form').submit(function(e) {
         e.preventDefault();
@@ -110,9 +110,7 @@ $(document).ready(function(){
             $('form').trigger('reset');
         });
         return false;
-    });   
-    
-    
+    });  
     $(window).scroll(function() {
         if ($(this).scrollTop() > 1600) {
             $('.pageup').fadeIn();
@@ -120,7 +118,14 @@ $(document).ready(function(){
             $('.pageup').fadeOut();
         }
     });
+    
+    $("a[href^='#']").click(function(){
+        var _href = $(this).attr("href");
+        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+        return false;
+    });
 
+    
 });
 
 
